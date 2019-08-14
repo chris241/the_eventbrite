@@ -1,5 +1,14 @@
 # README
 
+There are our team member:
+
+Nambinina
+Menja
+Aro
+Ronick
+Tsiry
+Chris
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
