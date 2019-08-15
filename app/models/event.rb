@@ -1,6 +1,10 @@
 class Event < ApplicationRecord
 	has_many :attendances 
 	has_many :users , through: :attendances 
+<<<<<<< HEAD
+=======
+    belongs_to :admin, class_name: "User"
+>>>>>>> f9dfabbfab45dfd4114575f21071a025a50587ed
 
 	validates :start_date, presence: true 
 	validates :duration, presence: true, numericality: {:greater_than_or_equal_to => 0}
