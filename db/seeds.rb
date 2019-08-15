@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
-
+Event.destroy_all
+Attendance.destroy_all
 require 'faker'
 
 10.times do
@@ -19,6 +20,29 @@ require 'faker'
   	                    )
 end
 puts "user "
+
+i = 1
+10.times do 
+	event = Event.create!(start_date: Faker::Date.forward(days: 23),
+		                  duration: 30,
+		                  title:"My event #{i}",
+		                  description:Faker::TvShows::HowIMetYourMother.quote,
+		                  price: Faker::Number.between(from: 1, to: 1000),
+		                  location:Faker::Nation.capital_city
+		                  )
+                          i+= 1
+		                  
+end	
+puts "event"
+
+10.times do
+	attendance = Attendance.create!(stripe_customer_id:Faker::Address.country_code, 
+		                            user: User.all.sample, 
+		                            event: Event.all.sample
+		                            )
+
+end
+puts "attendance"
 
 
 
