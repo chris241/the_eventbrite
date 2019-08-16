@@ -11,12 +11,7 @@ class Event < ApplicationRecord
 	validates :price, presence: true, length: { in: 1..1000}
 	validates :location, presence: true
 #start_date must be in the future
-	validate :start_date_cannot_be_in_the_past
-    def start_date_cannot_be_in_the_past
-        if start_date < Date.today
-            errors.add(:start_date, "can't be in the past")
-        end
-    end
+	
 #duration must be multiple of 5
     validate :duration_is_multiple_by_five
     def duration_is_multiple_by_five

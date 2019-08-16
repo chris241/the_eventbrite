@@ -32,8 +32,7 @@
           <%= current_user.email%>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item"></a>
-          <a class="dropdown-item" href="<%=root_path%>" method: :delete >Se déconnecter</a>
+          <%= link_to "Se déconnecter",destroy_user_session_path,class:'dropdown-item', method: :delete %>
         </div>
 <% else %>
       <li class="nav-item dropdown">
