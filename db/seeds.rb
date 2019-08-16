@@ -15,19 +15,21 @@ require 'faker'
 
  2.times do
 
-    user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description:Faker::TvShows::HowIMetYourMother.quote, 
+    user = User.create!(first_name: Faker::Name.first_name, 
+                        last_name: Faker::Name.last_name,
+                         description:Faker::TvShows::HowIMetYourMother.quote, 
 
-        email:"#{Faker::Name.first_name}@yopmail.com", encrypted_password: Faker::Internet.password)
+                      email:"#{Faker::Name.first_name}@yopmail.com", 
+                      password: Faker::Internet.password)
 
-    user.save
-
+    
 end
 
 puts "User ok"
 
 20.times do
 
-    event = Event.create( title: "Mon super event ",
+    event = Event.create!( title: "Mon super event ",
 
                     description: "La description super event",
 
@@ -47,9 +49,7 @@ puts "Event added"
 
 10.times do
 
-    attendance = Attendance.create(stripe_customer_id: Faker::Lorem.characters, event: Event.all.sample, participant: User.all.sample)
-
-    attendance.save
+    attendance = Attendance.create!(stripe_customer_id: Faker::Lorem.characters, event: Event.all.sample, participant: User.all.sample)
 
 end
 

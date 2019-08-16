@@ -1,2 +1,28 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<!-- Jumbotron -->
+<div class="jumbotron text-center">
+
+  <!-- Title -->
+  <h4 class="card-title h4 pb-2"><strong>My Events</strong></h4>
+
+  <!-- Card image -->
+  <div class="view overlay my-4">
+    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" class="img-fluid" alt="">
+    <a href="#">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <h5 class="indigo-text h5 mb-4">Photography</h5>
+
+  <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+<a class="btn btn-primary btn-rounded" href="<%=new_event_path%>">Créer un évènement</a>
+</div>
+<!-- Jumbotron -->
+
+<% @event.each do |e| %>
+<%= e.title %>
+<%= e.description %>
+<%= e.start_date%>
+<%= e.location %>
+<%= e.price%>
+<% end %>

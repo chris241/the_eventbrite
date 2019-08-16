@@ -1,2 +1,46 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+      <%= form_for @event do |f| %>
+        <h1 class="h3 mb-3 font-weight-normal text-center">Your Evenement :</h1>
+       
+        <div class="form-group">
+          <%= f.label :start_date, "Stard Date" %><br />
+         <%= f.date_field :start_date, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :duration, "duration" %><br />
+         <%= f.time_field :duration, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :title, "Title :" %><br />
+         <%= f.text_field :title, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description, "Description :" %><br />
+         <%= f.text_area :description, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :price, "Price :" %><br />
+         <%= f.text_field :price, class:'form-control' %>
+        </div>
+
+       <div class="form-group">
+          <%= f.label :location, "Location :" %><br />
+         <%= f.text_field :location, class:'form-control' %>
+        </div>
+
+        <div class="actions mt-sm-1">
+          <%= f.submit "Create", class: "btn btn-lg btn-primary btn-block" %>
+        </div>
+      <% end %>
+  </div>
+</div>
+</div>
+     
+
