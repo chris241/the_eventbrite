@@ -2,7 +2,7 @@
 <div class="jumbotron text-center">
 
   <!-- Title -->
-  <h4 class="card-title h4 pb-2"><strong>My Events</strong></h4>
+  <h4 class="card-title h4 pb-2"><strong>My Event</strong></h4>
 
   <!-- Card image -->
   <div class="view overlay my-4">
@@ -18,8 +18,26 @@
 <a class="btn btn-primary btn-rounded" href="<%=new_event_path%>">Créer un évènement</a>
 </div>
 <!-- Jumbotron -->
+<!-- Card -->
+<div class="card">
+	<% @event.each do |e| %>
+  <!-- Card image -->
+  <div class="view overlay">
+    <a href="#!">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
 
-<% @event.each do |e| %>
+  <div class="card-body">
+    <h4 class="card-title">Card title</h4>
+    <!-- Text -->
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <!-- Button -->
+    <a href="#" class="btn btn-primary">Button</a>
+  </div>
+</div>
+<!-- Card -->
+
 <%= e.title %>
 <%= e.description %>
 <%= e.start_date%>
