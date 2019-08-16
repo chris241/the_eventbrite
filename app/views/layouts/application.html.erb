@@ -4,15 +4,15 @@
     <title>Eventbrite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
- 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
   <body>
-  </header>
+  <!--Main Navigation-->
+  <header>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="<%=root_path%>">Accueil</a>
+  <a class="navbar-brand" href="/">THE EVENT BIRT</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -20,16 +20,31 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="<%=new_event_path%>">Creer un évènement<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%=root_path%>">Accueil<span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%=new_event_path%>">Créer un Event</a>
+      </li>
+
+  <% if user_signed_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.email%>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"></a>
+          <a class="dropdown-item" href="<%=root_path%>" method: :delete >Se déconnecter</a>
+        </div>
+<% else %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           S'inscrire/Se connecter
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<%=new_user_registration_path%>">S'inscrit</a>
+          <a class="dropdown-item" href="<%=new_user_registration_path%>">S'inscrire</a>
           <a class="dropdown-item" href="<%=new_user_session_path%>">Se connecter</a>
-      </li>
+        </div>
+  <% end %>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -37,131 +52,97 @@
     </form>
   </div>
 </nav>
-</header>
-    <%= yield %>
-<!-- Footer -->
-<!-- Footer -->
-<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+    <!-- Navbar -->
 
-  <!-- Footer Links -->
-  <div class="container text-center text-md-left">
-
-    <!-- Grid row -->
-    <div class="row">
-
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
-
+  </header>
+    <!--Main layout--><!-- Card -->
+      <!--Section: Jumbotron-->
+<section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
         <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Footer Content</h5>
-        <p>Here you can use rows and columns to organize your footer content.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit amet numquam iure provident voluptate
-          esse
-          quasi, veritatis totam voluptas nostrum.</p>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
-
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <p>
-              <a href="#!">PROJECTS</a>
-            </p>
-          </li>
-          <li>
-            <p>
-              <a href="#!">ABOUT US</a>
-            </p>
-          </li>
-          <li>
-            <p>
-              <a href="#!">BLOG</a>
-            </p>
-          </li>
-          <li>
-            <p>
-              <a href="#!">AWARDS</a>
-            </p>
-          </li>
-        </ul>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
-
-        <!-- Contact details -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Adresse</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <p>
-              <i class="fas fa-home mr-3"></i>Madagascar, Atananarivo</p>
-          </li>
-          <li>
-            <p>
-              <i class="fas fa-envelope mr-3"></i>example.com</p>
-          </li>
-          <li>
-            <p>
-              <i class="fas fa-phone mr-3"></i>033 03 033 33</p>
-          </li>
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
-
-        <!-- Social buttons -->
-        <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
-
-        <!-- Facebook -->
-        <a type="button" class="btn-floating btn-fb">
-          <i class="fab fa-facebook-f"></i>
+    <div class="card-body text-white text-center py-5 px-5 my-5">
+        <h1 class="mb-4"><strong>THE EVENT </strong></h1>
+        <p>
+          <strong>Best & free guide of responsive web design</strong>
+        </p>
+        <p class="mb-4">
+            <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written
+              versions available. Create your own, stunning website.</strong>
+        </p>
+        <a  href="<%=new_event_path%>" class="btn btn-info">Créer un évènement
         </a>
-        <!-- Twitter -->
-        <a type="button" class="btn-floating btn-tw">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <!-- Google +-->
-        <a type="button" class="btn-floating btn-gplus">
-          <i class="fab fa-google-plus-g"></i>
-        </a>
-        <!-- Dribbble -->
-        <a type="button" class="btn-floating btn-dribbble">
-          <i class="fab fa-dribbble"></i>
-        </a>
-
-      </div>
-      <!-- Grid column -->
-
     </div>
-    <!-- Grid row -->
+        <!-- Content -->
+</section>
+      <!--Section: Jumbotron-->
+  <!--Main Navigation-->
 
-  </div>
-  <!-- Footer Links -->
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2019 Copyright:
-    <a href="https://the-event-brite.herokuapp.com/">The eventBrite</a>
-  </div>
-  <!-- Copyright -->
+  <%= yield %>
+  <!--Main layout-->
 
-</footer>
-<!-- Footer -->
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn"id ="foot">
+
+    <!--Call to action-->
+    <div class="pt-4">
+      <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank"
+        role="button">
+        <i class="fas fa-download ml-2"></i>
+      </a>
+      <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank" role="button">Start
+        free tutorial
+        <i class="fas fa-graduation-cap ml-2"></i>
+      </a>
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+      <a href="https://www.facebook.com/mdbootstrap" target="_blank">
+        <i class="fab fa-facebook-f mr-3"></i>
+      </a>
+
+      <a href="https://twitter.com/MDBootstrap" target="_blank">
+        <i class="fab fa-twitter mr-3"></i>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
+        <i class="fab fa-youtube mr-3"></i>
+      </a>
+
+      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
+        <i class="fab fa-google-plus-g mr-3"></i>
+      </a>
+
+      <a href="https://dribbble.com/mdbootstrap" target="_blank">
+        <i class="fab fa-dribbble mr-3"></i>
+      </a>
+
+      <a href="https://pinterest.com/mdbootstrap" target="_blank">
+        <i class="fab fa-pinterest mr-3"></i>
+      </a>
+
+      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
+        <i class="fab fa-github mr-3"></i>
+      </a>
+
+      <a href="http://codepen.io/mdbootstrap/" target="_blank">
+        <i class="fab fa-codepen mr-3"></i>
+      </a>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2018 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

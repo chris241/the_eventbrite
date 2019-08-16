@@ -1,46 +1,26 @@
-<!-- Jumbotron -->
-<div class="jumbotron text-center">
 
-  <!-- Title -->
-  <h4 class="card-title h4 pb-2"><strong>My Event</strong></h4>
 
-  <!-- Card image -->
-  <div class="view overlay my-4">
-    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" class="img-fluid" alt="">
-    <a href="#">
-      <div class="mask rgba-white-slight"></div>
-    </a>
-  </div>
+<div class="row">
+  <!-- Card content -->
 
-  <h5 class="indigo-text h5 mb-4">Photography</h5>
+ <% @event.each do |e| %>
+  <div class="card-body col-md-4">
+ 	<div class="card">
 
-  <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-<a class="btn btn-primary btn-rounded" href="<%=new_event_path%>">Créer un évènement</a>
-</div>
-<!-- Jumbotron -->
-<!-- Card -->
-<div class="card">
-	<% @event.each do |e| %>
-  <!-- Card image -->
-  <div class="view overlay">
-    <a href="#!">
-      <div class="mask rgba-white-slight"></div>
-    </a>
-  </div>
-
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
+    <!-- Title -->
+    	<h4 class="card-title"><%= e.title %></h4>
     <!-- Text -->
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <!-- Button -->
-    <a href="#" class="btn btn-primary">Button</a>
+     	<p class="card-text"><%= e.description %></p>
+    	<p class="card-text"><%= e.start_date%></p>
+		<p class="card-text"><%= e.location %></p>
+		<p class="card-text"><%= e.price%></p>
+    	<a class="btn btn-primary" href="#" role="button">Link</a>
+  	</div>
   </div>
+<% end %>
 </div>
 <!-- Card -->
 
-<%= e.title %>
-<%= e.description %>
-<%= e.start_date%>
-<%= e.location %>
-<%= e.price%>
-<% end %>
+
+
+
