@@ -13,7 +13,7 @@ User.destroy_all
 
 require 'faker'
 
- 20.times do
+ 10.times do
 
     user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description:Faker::TvShows::HowIMetYourMother.quote, 
 
@@ -25,7 +25,7 @@ end
 
 puts "User ok"
 
-20.times do
+10.times do
 
     event = Event.create!( title: "Mon super event ",
 
