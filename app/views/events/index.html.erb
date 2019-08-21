@@ -14,12 +14,23 @@
     </div>
         <!-- Content -->
 </section>
-<%@event.each do |e|%>
-<%=e.start_date%>
-<%=e.duration%>
-<%=e.title%>
-<%=e.description%>
-<%=e.price%>
-<%=e.location%>
-
+ <h3 class="mt-3 pb-3 mb-4 font-italic border-bottom">
+   </h3>
+   <div class="row">
+     <%@event.each do |e|%>
+      <div class="col-md-4">
+         <div class="card">
+            <img class="card-img-top" src="//placeimg.com/280/180/tech" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3"><%=e.title%><a href="#" class="float-right d-inline-flex share"><i class="fas fa-share-alt text-primary"></i></a></h5>
+               <p class="card-text">Date de l'évènement<%=e.start_date%><br>
+               <span>Prix :	<%=e.price%> Euros</span><br>
+               <span>	Durée <%=e.duration%> Minutes</span><br>
+               </p>
+               <a href="<%= event_path(e.id)%>" class="float-right btn btn-primary">Lire la suite</a>
+            </div>
+         </div>
+      </div>
 <%end%>
+
+
