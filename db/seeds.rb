@@ -17,7 +17,7 @@ require 'faker'
 
     user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description:Faker::TvShows::HowIMetYourMother.quote, 
 
-        email:"#{Faker::Name.first_name}@yopmail.com",encrypted_password: Faker::Internet.password)
+        email:"#{Faker::Name.first_name}@yopmail.com",password: Faker::Internet.password)
 
    
 

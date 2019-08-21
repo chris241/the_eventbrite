@@ -14,3 +14,12 @@
     </div>
         <!-- Content -->
 </section>
+<%@event.each do |e|%>
+<%=e.start_date%>
+<%=e.duration%>
+<%=e.title%>
+<%=e.description%>
+<%=e.price%>
+<%=e.location%>
+
+<%end%>
